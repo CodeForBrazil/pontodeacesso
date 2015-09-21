@@ -1,23 +1,6 @@
-Melhorar a vida do usuários do Cartão Transporte de Curitiba https://github.com/Thithi32/Kartao
+Objetivo: Mapear a cidade com pontos de acessibilidade para pessoas com deficiência física, sendo usuários ou não de cadeira de rodas.
 
-features
-=======
-> o que já fizemos
-
-UM MAPA COM
-
- - os lugares onde carregar o seu cartão transporte avulso ou usuário
-
- - os lugares onde emitir um cartão avulso
-
- - os lugares onde emitir um cartão transporte usuário
-
- - A primeira versão do site esta feito em PHP + HTML + Javascript e esta hospedado no cloud Heroku.
-
-on the grill
-=========
-> vem nos ajudar!
-
+### Features
 ### SEO
 
 Precisamos divulgar!! Ninguem conhece o Kartão!
