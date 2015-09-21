@@ -1,77 +1,3 @@
-angular.module('myApp')
-	.controller('TodoController', [ '$scope', '$http', function ($scope, $http) { 
-		
-$scope.newTodo = {}; 
-
-$scope.loadTodos = function(){ 
-		$http.get('todos/all') 
-			.success(function(data, status, headers, config) { 
-				$scope.todos = data; 
-				})
-			.error(function(data, status, headers, config) { 
-				alert('Error loading Todos'); 
-			});
-}; 
-
-$scope.addTodo = function(){
-	$http.post('todos/salvar',$scope.newTodo) 
-		.success(function(data, status, headers, config) { 
-			$scope.newTodo = {}; 
-			$scope.loadTodos(); 
-		}) 
-		.error(function(data, status, headers, config) { 
-			alert('Error saving Todo'); 
-		}); 
-}; 
-
-$scope.deleteTodo = function(todo){ 
-	$http.post('todos/delete', todo.id)
-		.success(function(data, status, headers, config) { 
-			$scope.loadTodos(); 
-		}) 
-		.error(function(data, status, headers, config) { 
-			alert('Error deleting Todo'); 
-		}); 
-}; 
-
-$scope.loadTodos(); 
-
-}]);
-
-//Data
-var cities = [
-    {
-        city : 'Toronto',
-        desc : 'This is the best city in the world!',
-        lat : 43.7000,
-        long : -79.4000
-    },
-    {
-        city : 'New York',
-        desc : 'This city is aiiiiite!',
-        lat : 40.6700,
-        long : -73.9400
-    },
-    {
-        city : 'Chicago',
-        desc : 'This is the second best city in the world!',
-        lat : 41.8819,
-        long : -87.6278
-    },
-    {
-        city : 'Los Angeles',
-        desc : 'This city is live!',
-        lat : 34.0500,
-        long : -118.2500
-    },
-    {
-        city : 'Las Vegas',
-        desc : 'Sin City...\'nuff said!',
-        lat : 36.0800,
-        long : -115.1522
-    }
-];
-
 //Angular App Module and Controller
 angular.module('myApp').controller('MapCtrl',[ '$scope', '$http', function ($scope, $http) {
 
@@ -120,10 +46,6 @@ angular.module('myApp').controller('MapCtrl',[ '$scope', '$http', function ($sco
     		}); 
     }; 
     
-    //for (i = 0; i < cities.length; i++){
-        //createMarker(cities[i]);
-    //}
-
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
