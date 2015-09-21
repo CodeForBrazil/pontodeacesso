@@ -6,7 +6,7 @@
   height: calc(100% - 0px);
   /* para suporte nativo */
   position: absolute;
-  width: 100%;
+  width: 83%;
   padding: 0;
   top: 0px;
   overflow: hidden;
@@ -14,7 +14,7 @@
 
 .position {
 	padding-right: 0;
-	padding-left: 0;
+	padding-left: 230px;
  	margin-right: 0;
 	margin-left: 0;
 }

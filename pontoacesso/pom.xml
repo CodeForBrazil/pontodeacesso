@@ -76,6 +76,12 @@
 			<artifactId>angular-google-maps</artifactId>
 			<version>2.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>startbootstrap-simple-sidebar</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+		
 		
 	</dependencies>
 
