@@ -2,13 +2,38 @@
 angular.module('myApp').controller('MapCtrl',[ '$scope', '$http', function ($scope, $http) {
 
     var mapOptions = {
-        zoom: 4,
-        center: new google.maps.LatLng(40.0000, -98.0000),
+        zoom: 16,
+        center: new google.maps.LatLng(-25.4284, -49.2733),
         mapTypeId: google.maps.MapTypeId.TERRAIN
     }
-
+    
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+    
+    if(navigator.geolocation) {
+        browserSupportFlag = true;
+        navigator.geolocation.getCurrentPosition(function(position) {
+          initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+          $scope.map.setCenter(initialLocation);
+        }, function() {
+          handleNoGeolocation(browserSupportFlag);
+        });
+        // Browser doesn't support Geolocation
+    } else {
+       browserSupportFlag = false;
+       handleNoGeolocation(browserSupportFlag);
+    }
+        
+        function handleNoGeolocation(errorFlag) {
+            if (errorFlag == true) {
+              alert("Geolocation service failed.");
+              initialLocation = newyork;
+            } else {
+              alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+              initialLocation = siberia;
+            }
+            $scope.map.setCenter(initialLocation);
+          }
+        
     $scope.markers = [];
     $scope.newMarkers = [];
     
