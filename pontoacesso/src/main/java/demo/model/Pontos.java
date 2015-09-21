@@ -1,14 +1,32 @@
 package demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pontos")
 public class Pontos {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	protected Long id;
+
+	@Column(name = "nome")
 	protected String nome;
 
+	@Column(name = "descricao")
 	protected String descricao;
 
-	protected Long latitude;
+	@Column(name = "latitude")
+	protected Double latitude;
 
-	protected Long longitude;
+	@Column(name = "longitude")
+	protected Double longitude;
 
 	public String getNome() {
 		return nome;
@@ -26,20 +44,28 @@ public class Pontos {
 		this.descricao = descricao;
 	}
 
-	public Long getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Long latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
-	public Long getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Long longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

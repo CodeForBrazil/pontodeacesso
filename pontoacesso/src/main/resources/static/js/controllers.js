@@ -73,7 +73,7 @@ var cities = [
 ];
 
 //Angular App Module and Controller
-angular.module('myApp').controller('MapCtrl', function ($scope) {
+angular.module('myApp').controller('MapCtrl',[ '$scope', '$http', function ($scope, $http) {
 
     var mapOptions = {
         zoom: 4,
@@ -92,10 +92,10 @@ angular.module('myApp').controller('MapCtrl', function ($scope) {
         
         var marker = new google.maps.Marker({
             map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city
+            position: new google.maps.LatLng(info.latitude, info.longitude),
+            title: info.nome
         });
-        marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+        marker.content = '<div class="infoWindowContent">' + info.descricao + '</div>';
         
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
@@ -107,9 +107,10 @@ angular.module('myApp').controller('MapCtrl', function ($scope) {
     }
     
     $scope.getMarkers = function(){ 
-    	$http.post('marker/all')
+    	$http.get('markers/all')
     		.success(function(data, status, headers, config) {
     			$scope.newMarkers = data;
+    			console.log($scope.newMarkers);
     			for (i = 0; i < $scope.newMarkers.length; i++){
     		        createMarker($scope.newMarkers[i]);
     		    } 
@@ -119,13 +120,14 @@ angular.module('myApp').controller('MapCtrl', function ($scope) {
     		}); 
     }; 
     
-    for (i = 0; i < cities.length; i++){
-        createMarker(cities[i]);
-    }
+    //for (i = 0; i < cities.length; i++){
+        //createMarker(cities[i]);
+    //}
 
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
         google.maps.event.trigger(selectedMarker, 'click');
     }
-
-});
+    
+    $scope.getMarkers();
+}]);
