@@ -28,6 +28,15 @@ public class Pontos {
 	@Column(name = "longitude")
 	protected Double longitude;
 
+	public Pontos() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Pontos(Double latitude, Double longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+
 	public String getNome() {
 		return nome;
 	}

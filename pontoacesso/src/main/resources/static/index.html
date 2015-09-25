@@ -14,85 +14,97 @@
 </head>
 <body>
 	<!-- Sidebar -->
-	<div id="sidebar-wrapper">
+	<div id="sidebar-wrapper" ng-controller="MarkerCtrl">
 		<ul class="sidebar-nav">
-			<b>Vizualizar no mapa:</b> 
+			<b>Vizualizar no mapa:</b>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label for="checkbox4"> 
-					 Restaurantes
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label
+					for="checkbox4"> Restaurantes </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label for="checkbox4"> 
-					 Hospitais
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label
+					for="checkbox4"> Hospitais </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Estacionamentos
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Estacionamentos </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Calçadas com rampa
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Calçadas com rampa </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Comércios
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Comércios </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Estação Tubo
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Estação Tubo </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Ônibus com elevadores
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Ônibus com elevadores </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Hor. de turismo adaptados
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Hor. de turismo adaptados </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Carros adaptados
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Carros adaptados </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Vagas de emprego
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Vagas de emprego </label>
 			</div>
 			<div class="checkbox checkbox-info">
-				<input id="checkbox4" class="styled" type="checkbox">
-				<label> 
-					Locais perigosos
-				</label>
+				<input id="checkbox4" class="styled" type="checkbox"> <label>
+					Locais perigosos </label>
 			</div>
 		</ul>
+		<button type="button" class="btn btn-success right" title="Adicionar Marcador" ng-click="openModalAddMarker();">Adicionar Marcador</button>
 	</div>
-	<!-- /#sidebar-wrapper -->
 
+	<!-- modal desinstalacao -->
+	<div class="modal fade" id="addMarker" ng-controller="MarkerCtrl">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Adicionar Marcador</h3>
+				</div>
+				<div class="modal-body">
+					<div class="modal-wrapper">
+						<div class="col agendamento">
+							<p>Digite o endereço do novo marcador</p>
+							<div class="form-group">
+								<label>Endereço: </label> <input type="text"
+									class="form-control" name="endereco"
+									ng-model="pontoAcessoView.endereco" required />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="right">
+						<button type="button" data-dismiss="modal" aria-label="Close"
+							class="btn btn-transp cancel">Cancelar</button>
+						<button type="button" class="btn btn-success"
+							ng-click="addMarker(pontoAcessoView.endereco)">Salvar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- /#sidebar-wrapper -->
 	<div id="page-content-wrapper">
 		<div class="container-fluid position">
 			<div ng-view></div>
 		</div>
-		<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Adicionar Marcador</a>
 	</div>
+
+	
+
 	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script src="webjars/jquery/2.1.4/jquery.js"></script>
 	<script src="webjars/bootstrap/3.3.5/js/bootstrap.js"></script>
