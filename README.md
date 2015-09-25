@@ -3,6 +3,7 @@ Objetivo: Mapear a cidade com pontos de acessibilidade para pessoas com deficiê
 ### Features
  - Calçadas com rampa
  - Estacionamentos
+ - Farmácias
  - Acesso aos comércios
  - Acesso aos restaurantes
  - Hospitais
