@@ -50,7 +50,7 @@ public class MarkerController {
 		return new ResponseEntity<List<Pontos>>(pontos, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ResponseEntity<?> adicionarMarcador(@RequestParam String nome,
 			@RequestParam String endereco, @RequestParam Long categoria,
 			@RequestParam String caracteristicas) {
