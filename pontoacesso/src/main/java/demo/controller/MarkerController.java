@@ -81,5 +81,14 @@ public class MarkerController {
 		}
 		return new ResponseEntity<List<Pontos>>(lista, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/find", method = RequestMethod.GET)
+	public ResponseEntity<?> find(@RequestParam Long categoria){
+		System.out.println(categoria);
+		Categoria cat = categoriaService.findById(categoria);
+		List<Pontos> pontos = repository.findAllByCategoria(cat);
+		return new ResponseEntity<List<Pontos>>(pontos, HttpStatus.OK);
+	}
 
 }
+
