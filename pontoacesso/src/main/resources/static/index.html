@@ -7,14 +7,15 @@
 <link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.css" />
 <link rel="stylesheet"
 	href="webjars/font-awesome/4.4.0/css/font-awesome.css" />
+<link rel="stylesheet" href="webjars/flat-ui/bcaf2de95e/css/flat-ui.css" />
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="css/build.css" />
-<link rel="stylesheet"
-	src="webjars/startbootstrap-simple-sidebar/1.0.4/css/simple-sidebar.css"</link>
+<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+<link rel="stylesheet" src="webjars/startbootstrap-simple-sidebar/1.0.4/css/simple-sidebar.css"</link>
 </head>
 <body>
-	<!-- Sidebar -->
-	<div id="sidebar-wrapper" ng-controller="MarkerCtrl">
+	<!-- Sidebar old -->
+	<!-- <div id="sidebar-wrapper" ng-controller="MarkerCtrl">
 		<ul class="sidebar-nav">
 			<b>Vizualizar no mapa:</b>
 			<div class="checkbox checkbox-info">
@@ -63,8 +64,85 @@
 			</div>
 		</ul>
 		<button type="button" class="btn btn-success right" title="Adicionar Marcador" ng-click="openModalAddMarker();">Adicionar Marcador</button>
+	</div> -->
+	<!-- nav-top-logo -->
+	<nav class="navbar navbar-default logo">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<h1>Ponto de Acesso</h1> 
+					<!-- <img alt="Brand" src="..."> -->
+				</a>
+			</div>
+		</div>
+	</nav>
+	<!-- sidebar -->
+	<div class="container-fluid" ng-controller="MarkerCtrl">
+		<div class="row">
+			<div class="container-sidebar col-xs-12 col-sm-4">
+				<!-- navbar -->
+				<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+					<div class="navbar-header">
+					<h2>Vizualizar no mapa:</h2>
+						<button type="button" class="btn btn-default navbar-toggle" data-toggle="collapse"
+							data-target="#navbar-collapse-01">
+							<span class="sr-only">Toggle navigation</span> <i
+								class="fa fa-bars fa-lg"></i>
+						</button>
+					</div>
+					<div class="navbar-collapse collapse" id="navbar-collapse-01">
+						<div class="nav navbar-nav navbar-left sidebar-nav">
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label
+									for="checkbox4"> Restaurantes </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label
+									for="checkbox4"> Hospitais </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Estacionamentos </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Calçadas com rampa </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Comércios </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Estação Tubo </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Ônibus com elevadores </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Hor. de turismo adaptados </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Carros adaptados </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Vagas de emprego </label>
+							</div>
+							<div class="checkbox checkbox-info">
+								<input id="checkbox4" class="styled" type="checkbox"> <label>
+									Locais perigosos </label>
+							</div>
+<!-- 							<button type="button" class="btn btn-success right" title="Adicionar Marcador" ng-click="openModalAddMarker();"><span>Adicionar Marcador</span><i class="fa fa-tags"></i></button>-->						
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
 	</div>
-
 	<!-- modal desinstalacao -->
 	<div class="modal fade" id="addMarker" ng-controller="MarkerCtrl">
 		<div class="modal-dialog">
@@ -97,11 +175,12 @@
 	</div>
 
 	<!-- /#sidebar-wrapper -->
-	<div id="page-content-wrapper">
+	<!-- <div id="page-content-wrapper">
 		<div class="container-fluid position">
 			<div ng-view></div>
 		</div>
-	</div>
+	</div> -->
+	<div class="container-mapa col-xs-12 col-sm-8"><div class="ng-view-mapa" ng-view></div></div>
 
 	
 
@@ -111,6 +190,9 @@
 	<script src="webjars/angularjs/1.4.4/angular.js"></script>
 	<script src="webjars/angularjs/1.4.4/angular-route.js"></script>
 	<script src="webjars/angular-google-maps/2.1.1/angular-google-maps.js"></script>
+	<script src="js/jquery.mCustomScrollbar.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/layout.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>

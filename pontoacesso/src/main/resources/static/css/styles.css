@@ -32,3 +32,164 @@ h2 {
 	height:100%;
     width:100%;
 }
+/**
+*	@section NAVBAR LOGO
+*/
+.navbar.navbar-default.logo{
+	background-color: #262626;
+	margin: 0;
+	height: 60px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #181818;
+}
+.navbar.navbar-default.logo a{text-decoration: none;}
+.navbar.navbar-default.logo a h1{
+	font: bold 22px "Lato",sans-serif;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+
+/**
+* @section ESTRUTURA GERAL
+*/
+/** @subsection sidebar e mapa */
+.container-sidebar.col-sm-4 {
+    z-index: 3;
+    padding: 0;
+    background-color: #34495e;
+}
+.container-sidebar .navbar.navbar-inverse.navbar-embossed{
+	margin-bottom: 0;
+}
+.container-sidebar .navbar-header {
+	background: #34495e none repeat scroll 0 0;
+    border-bottom: 1px solid #5c7084;
+    width: 100%;
+}
+.container-sidebar .navbar-header h2{
+	color: #fff;
+	font-size: 1.2em;
+	padding: 0 3px;
+    margin: 0 0 0 21px;
+    line-height: 53px;
+    float: left;
+}
+.container-sidebar .navbar-header .navbar-toogle{
+	margin-top: 17px;
+}
+.container-sidebar .navbar-embossed{border: none;}
+.container-sidebar .navbar-embossed > .navbar-collapse{
+	clear: both;
+	background-color: #34495e;
+}
+#navbar-collapse-01{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.container-sidebar .navbar-embossed > .navbar-collapse li{
+	clear: both;
+}
+.container-sidebar .nav.navbar-nav.navbar-left.sidebar-nav{
+	width: 100%;
+}
+.container-sidebar .nav.navbar-nav.navbar-left.sidebar-nav .btn-success{
+	width: 100%;
+}
+.container-sidebar .nav.navbar-nav.navbar-left.sidebar-nav .btn-success i,
+.container-sidebar .nav.navbar-nav.navbar-left.sidebar-nav .btn-success span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.container-sidebar .nav.navbar-nav.navbar-left.sidebar-nav .btn-success i{
+	margin-left: 10px;
+}
+.container-sidebar label{
+	color: #ddd;
+	font-size: 0.85em;
+    font-weight: bold;
+    width: 170px;
+}
+.container-sidebar .checkbox.checkbox-info{
+	cursor: pointer;
+	padding: 10px 30px;
+}
+
+.container-sidebar .checkbox.checkbox-info label,
+.container-sidebar .checkbox.checkbox-info input{
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.container-sidebar .checkbox label::before {
+	background: none;
+	font-weight: normal;
+}
+.container-sidebar .checkbox.checkbox-info:after{
+    content: "\f02b";
+    font: normal normal normal 14px/1 FontAwesome;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    font-size: 1em;
+    opacity: 1;
+    visibility: visible;
+    color: #ddd;
+}
+.container-sidebar .checkbox-info input[type="checkbox"]:checked + label::before, 
+.container-sidebar .checkbox-info input[type="radio"]:checked + label::before {
+    background-color: #5af29b;
+    border-color: #5af29b;
+}
+.container-sidebar input.styled[type="checkbox"]:checked + label::after, 
+.container-sidebar input.styled[type="radio"]:checked + label::after {
+    color: #34495e;
+    font-weight: normal;
+}
+
+.container-mapa.col-sm-8 {
+    z-index: 2;
+    padding: 0;
+}
+.container-mapa{
+	height: 100%;
+	position: absolute;
+}
+@media (max-width: 768px){
+	.container-sidebar .navbar{margin: 0;}
+	.container-sidebar .navbar button.btn.btn-success{margin-bottom: 20px;}
+	.container-mapa {
+		height: calc(100% - 120px);
+	    height: -moz-calc(100% - 120px);
+	    height: -webkit-calc(100% - 120px);
+	}
+	.container-sidebar .nav.navbar-nav.navbar-left.sidebar-nav {
+		margin: 0;
+	}
+}
+@media (min-width: 768px){
+	.container-sidebar.col-sm-4 {
+	    position: fixed;
+    	left: 0;
+    	height: calc(100% - 60px);
+	    width: 300px;
+	}
+	.container-mapa.col-sm-8 {
+	    left: 300px;
+ 	   	height: calc(100% - 60px);
+   		height: -moz-calc(100% - 60px);
+   		height: -webkit-calc(100% - 60px);
+    	position: fixed;
+	    width: calc(100% - 300px);
+	    width: -moz-calc(100% - 300px);
+	    width: -webkit-calc(100% - 300px);
+	}
+}
+
+.ng-view-mapa {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+#map{width: 100%;}
