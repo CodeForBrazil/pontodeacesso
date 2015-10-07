@@ -10,10 +10,14 @@
 <link rel="stylesheet" href="webjars/flat-ui/bcaf2de95e/css/flat-ui.css" />
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="css/build.css" />
+<link rel="stylesheet"
+	src="webjars/startbootstrap-simple-sidebar/1.0.4/css/simple-sidebar.css"</link>
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
 <link rel="stylesheet" src="webjars/startbootstrap-simple-sidebar/1.0.4/css/simple-sidebar.css"</link>
 </head>
 <body>
+	<!-- Sidebar -->
+	<div id="sidebar-wrapper" ng-controller="MarkerCtrl">
 	<!-- Sidebar old -->
 	<!-- <div id="sidebar-wrapper" ng-controller="MarkerCtrl">
 		<ul class="sidebar-nav">
@@ -143,6 +147,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- modal desinstalacao -->
 	<div class="modal fade" id="addMarker" ng-controller="MarkerCtrl">
 		<div class="modal-dialog">
@@ -175,10 +180,12 @@
 	</div>
 
 	<!-- /#sidebar-wrapper -->
+	<div id="page-content-wrapper">
 	<!-- <div id="page-content-wrapper">
 		<div class="container-fluid position">
 			<div ng-view></div>
 		</div>
+	</div>
 	</div> -->
 	<div class="container-mapa col-xs-12 col-sm-8"><div class="ng-view-mapa" ng-view></div></div>
 

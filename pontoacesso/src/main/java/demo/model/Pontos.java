@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,13 +30,20 @@ public class Pontos {
 	@Column(name = "longitude")
 	protected Double longitude;
 
+	@OneToOne
+	@JoinColumn(name = "id_categoria")
+	protected Categoria categoria;
+
 	public Pontos() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public Pontos(Double latitude, Double longitude) {
+	public Pontos(Double latitude, Double longitude, Categoria categoria,
+			String nome, String endereco) {
+		this.nome = nome;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.categoria = categoria;
+		this.descricao = endereco;
 	}
 
 	public String getNome() {
@@ -75,6 +84,14 @@ public class Pontos {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 }
