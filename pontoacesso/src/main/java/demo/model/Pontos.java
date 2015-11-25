@@ -29,6 +29,9 @@ public class Pontos {
 
 	@Column(name = "longitude")
 	protected Double longitude;
+	
+	@Column(name = "foto")
+	protected String foto;
 
 	@OneToOne
 	@JoinColumn(name = "id_categoria")
@@ -92,6 +95,14 @@ public class Pontos {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 }

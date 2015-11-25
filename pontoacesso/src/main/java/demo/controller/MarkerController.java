@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import demo.model.CadastroView;
 import demo.model.Caracteristica;
 import demo.model.Categoria;
 import demo.model.GeoLocation;
@@ -80,6 +82,25 @@ public class MarkerController {
 			e.printStackTrace();
 		}
 		return new ResponseEntity<List<Pontos>>(lista, HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public ResponseEntity<?> adicionar(@RequestBody CadastroView cadastroView){
+		Pontos p = new Pontos();
+		p.setCategoria(categoriaService.findById(Long.valueOf(cadastroView.getTipo())));
+		p.setNome(cadastroView.getNome());
+		p.setLatitude(cadastroView.getLatitude());
+		p.setLongitude(cadastroView.getLongitude());
+		p.setFoto(cadastroView.getFoto());
+		repository.save(p);
+		for (Integer c : cadastroView.getCaracteristicas()) {
+			Caracteristica caracteristica = caracteristicaService.findById(c.longValue());
+			PontoCaracteristica pc = new PontoCaracteristica(p, caracteristica);
+			pontoCaracteristicaService.salvar(pc);
+			
+		}
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/find", method = RequestMethod.GET)

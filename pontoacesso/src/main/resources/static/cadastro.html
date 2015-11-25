@@ -1,0 +1,103 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<meta charset="UTF-8" />
+<title>Ponto de Acesso - Portal de Acessibilidade</title>
+<link rel="icon" type="image/png" href="/public/favicon.ico"></link>
+<link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.css" />
+<link rel="stylesheet"
+	href="webjars/font-awesome/4.4.0/css/font-awesome.css" />
+<link rel="stylesheet" href="webjars/flat-ui/bcaf2de95e/css/flat-ui.css" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/build.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-default logo">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="Ponto de Acesso"
+					src="img/logos/logo-ponto-de-acesso.png">
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<div id="page-content-wrapper" ng-controller="CadastroCtrl">
+	
+		
+		<div class="form-group">
+				<label>Marque no mapa o Ponto de Acesso:</label> 
+			</div>
+			<div class="ng-view-mapa-cadastro" id="mapCadastro"></div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<label for="singleSelect">Selecione o tipo: </label><br>
+		    <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+		      <option value="1">Restaurante</option> <!-- interpolation -->
+		      <option value="2">Estação Tubo</option>
+		      <option value="3">Estacionamento</option>
+		      <option value="4">Farmácia</option>
+		      <option value="5">Calçadas</option>
+		      <option value="6">Comércio</option>
+		      <option value="7">Hospitais</option>
+		      <option value="8">Venda de Carros</option>
+		      <option value="9">Montadora de Carros</option>
+		      <option value="10">Emprego</option>
+		    </select><br>
+			<div class="form-group">
+				<label for="nome">Nome:</label> <input type="text"
+					class="form-control" id="nome" ng-model="cadastroView.nome">
+			</div>
+			<label for="caracteristicas">Características do Local:</label>
+			<div class="caracteristicas">
+				<label><input type="checkbox" ng-model="ids[1]">Banheiro Adaptado</label><br/>
+				<label><input type="checkbox" ng-model="ids[2]">Rampa</label><br/>
+				<label><input type="checkbox" ng-model="ids[3]">Elevador</label><br/>
+				<label><input type="checkbox" ng-model="ids[4]">Calçada Adequada</label><br/>
+				<label><input type="checkbox" ng-model="ids[5]">Atendimento Diferenciado</label><br/>
+				<label><input type="checkbox" ng-model="ids[6]">Prioridade de Atendimento</label><br/>
+				<label><input type="checkbox" ng-model="ids[7]">Carros Adaptados</label><br/>
+			</div>
+			<label>Adicione uma foto:</label>
+			<div>
+				<img class="profile-pic" src="img/logos/logo-ponto-de-acesso.png" />
+				<input class="file-upload" type="file" accept="image/*"/>
+			</div>
+		<button type="button" class="btn btn-default" ng-click="salvarDados()">Cadastrar</button>
+		<span class="label label-success" ng-show="cadastroView.sucesso">Ponto cadastrado com sucesso</span>
+		<span class="label label-danger" ng-show="cadastroView.erro">Ocorreu um erro ao cadastrar o ponto</span>
+	</div>
+
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="webjars/jquery/2.1.4/jquery.js"></script>
+	<script src="webjars/bootstrap/3.3.5/js/bootstrap.js"></script>
+	<script src="webjars/angularjs/1.4.4/angular.js"></script>
+	<script src="webjars/angularjs/1.4.4/angular-route.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/cadastroController.js"></script>
+	<script src="js/services.js"></script>
+</body>
+</html>

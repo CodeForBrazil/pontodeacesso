@@ -86,7 +86,6 @@ angular.module('myApp').controller('MarkerCtrl',[ '$scope', '$http', '$timeout',
 	    	        }
 	    		}
 	    	}
-	    	console.log($scope.markers);
 	    };
 	    
 	    
@@ -97,8 +96,8 @@ angular.module('myApp').controller('MarkerCtrl',[ '$scope', '$http', '$timeout',
 	            title: info.nome,
 	            icon: '/img/markers/marker.png'
 	        });
-	        
-	        marker.content = '<div class="infoWindowContent">' + info.descricao + '</div>';
+	        console.log(info.foto);
+	        marker.content = '<div class="infoWindowContent"> <img src="' + info.foto + '" height="80" width="80"/></div>';
 	        marker.categoria = info.categoria.id;
 	        
 	        google.maps.event.addListener(marker, 'click', function(){

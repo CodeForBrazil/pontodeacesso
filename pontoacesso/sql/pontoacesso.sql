@@ -37,3 +37,5 @@ CREATE TABLE `ponto_caracteristicas` (
   CONSTRAINT `idPonto` FOREIGN KEY (`id_ponto`) REFERENCES `pontos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
+ALTER TABLE `pontoacesso`.`pontos` 
+ADD COLUMN `foto` LONGTEXT NULL DEFAULT NULL AFTER `id_categoria`;
