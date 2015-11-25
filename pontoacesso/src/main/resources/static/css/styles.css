@@ -43,6 +43,13 @@ h2 {
 	border-radius: 0;
 	border-bottom: 1px solid #000;
 }
+.navbar.navbar-default.logo .navbar-brand{padding: 0;}
+
+.navbar.navbar-default.logo img{
+	height: 100%;
+	width: auto;
+	margin: 2px 20px;
+}
 .navbar.navbar-default.logo a{text-decoration: none;}
 .navbar.navbar-default.logo a h1{
 	font: bold 22px "Lato",sans-serif;
