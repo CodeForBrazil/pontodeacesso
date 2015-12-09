@@ -49,7 +49,12 @@ angular.module('myApp').controller('MarkerCtrl',[ '$scope', '$http', '$timeout',
 	    		.success(function(data, status, headers, config) {
 	    			$scope.newMarkers = data;
 	    			for (i = 0; i < $scope.newMarkers.length; i++){
-	    				$scope.createMarker($scope.newMarkers[i]);
+	    				var caracteristicas = '';
+	    				for(j = 0; j < $scope.newMarkers[i].caracteristicas.length; j++){
+	    					caracteristicas += $scope.newMarkers[i].caracteristicas[j].caracteristica.descricao;
+	    				}
+	    				console.log(caracteristicas); 
+	    				$scope.createMarker($scope.newMarkers[i], caracteristicas);
 	    		    } 
 	    		});
 	    };
@@ -89,19 +94,14 @@ angular.module('myApp').controller('MarkerCtrl',[ '$scope', '$http', '$timeout',
 	    };
 	    
 	    
-	    $scope.createMarker = function (info){
+	    $scope.createMarker = function (info, carac){
 	        var marker = new google.maps.Marker({
 	            map: $scope.map,
 	            position: new google.maps.LatLng(info.latitude, info.longitude),
 	            title: info.nome,
 	            icon: '/img/markers/marker.png'
 	        });
-	        console.log(info.foto);
-	        marker.content = '<div class="infoWindowContent">'  
-	        								+ '<img src="' + info.foto + '" height="80" width="80"/> 
-	        								+	'<span>Características do Local:</span>
-	        								+'<br/>'
-	        				 +'</div>';
+	        marker.content = '<div class="infoWindowContent"><img src="' + info.foto + '" height="80" width="80"/><br/><span>Características do Local:</span><div>' + carac + '</div><br/></div>';
 	        marker.categoria = info.categoria.id;
 	        
 	        google.maps.event.addListener(marker, 'click', function(){

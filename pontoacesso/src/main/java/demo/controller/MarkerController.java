@@ -49,17 +49,6 @@ public class MarkerController {
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<?> pontos() {
 		List<Pontos> pontos = (List<Pontos>) repository.findAll();
-		List<PontoCaracteristica> caracteristicas = (List<PontoCaracteristica>) pontoCaracteristicaService
-				.buscar();
-		for (Pontos p : pontos) {
-			List<PontoCaracteristica> pc = new ArrayList<PontoCaracteristica>();
-			for (PontoCaracteristica c : caracteristicas) {
-				if (c.getPonto().getId().equals(p.getId())) {
-					pc.add(c);
-				}
-			}
-			p.setCaracteristicas(pc);
-		}
 		return new ResponseEntity<List<Pontos>>(pontos, HttpStatus.OK);
 	}
 

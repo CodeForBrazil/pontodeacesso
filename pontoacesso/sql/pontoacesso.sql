@@ -38,4 +38,4 @@ CREATE TABLE `ponto_caracteristicas` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 ALTER TABLE `pontoacesso`.`pontos` 
-ADD COLUMN `foto` LONGTEXT NULL DEFAULT NULL AFTER `id_categoria`;
+ADD COLUMN `foto` MEDIUMTEXT NULL DEFAULT NULL AFTER `id_categoria`;

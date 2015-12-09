@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import demo.model.PontoCaracteristica;
+import demo.model.Pontos;
 import demo.repository.PontoCaracteristicaRepository;
 
 @Service
@@ -18,7 +19,7 @@ public class PontoCaracteristicaService {
 		repository.save(pc);
 	}
 
-	public List<PontoCaracteristica> buscar() {
-		return (List<PontoCaracteristica>) repository.findAll();
+	public List<PontoCaracteristica> buscar(Pontos p) {
+		return (List<PontoCaracteristica>) repository.findByPonto(p);
 	}
 }
