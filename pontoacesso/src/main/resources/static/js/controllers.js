@@ -97,7 +97,11 @@ angular.module('myApp').controller('MarkerCtrl',[ '$scope', '$http', '$timeout',
 	            icon: '/img/markers/marker.png'
 	        });
 	        console.log(info.foto);
-	        marker.content = '<div class="infoWindowContent"> <img src="' + info.foto + '" height="80" width="80"/></div>';
+	        marker.content = '<div class="infoWindowContent">'  
+	        								+ '<img src="' + info.foto + '" height="80" width="80"/> 
+	        								+	'<span>Características do Local:</span>
+	        								+'<br/>'
+	        				 +'</div>';
 	        marker.categoria = info.categoria.id;
 	        
 	        google.maps.event.addListener(marker, 'click', function(){

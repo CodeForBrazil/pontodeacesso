@@ -1,5 +1,7 @@
 package demo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "pontos")
@@ -29,9 +32,12 @@ public class Pontos {
 
 	@Column(name = "longitude")
 	protected Double longitude;
-	
+
 	@Column(name = "foto")
 	protected String foto;
+
+	@Transient
+	protected List<PontoCaracteristica> caracteristicas;
 
 	@OneToOne
 	@JoinColumn(name = "id_categoria")
@@ -103,6 +109,14 @@ public class Pontos {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public List<PontoCaracteristica> getCaracteristicas() {
+		return caracteristicas;
+	}
+
+	public void setCaracteristicas(List<PontoCaracteristica> caracteristicas) {
+		this.caracteristicas = caracteristicas;
 	}
 
 }
