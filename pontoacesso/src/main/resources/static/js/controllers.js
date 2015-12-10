@@ -51,7 +51,7 @@ angular.module('myApp').controller('MarkerCtrl',[ '$scope', '$http', '$timeout',
 	    			for (i = 0; i < $scope.newMarkers.length; i++){
 	    				var caracteristicas = '';
 	    				for(j = 0; j < $scope.newMarkers[i].caracteristicas.length; j++){
-	    					caracteristicas += $scope.newMarkers[i].caracteristicas[j].caracteristica.descricao;
+	    					caracteristicas += '<b>' + $scope.newMarkers[i].caracteristicas[j].caracteristica.descricao + '</b>' + '<br/>';
 	    				}
 	    				console.log(caracteristicas); 
 	    				$scope.createMarker($scope.newMarkers[i], caracteristicas);
