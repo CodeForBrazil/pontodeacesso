@@ -71,8 +71,8 @@ h2 {
     z-index: 3;
     padding: 0;
     background-color: #34495e;
-}
-.container-sidebar .navbar.navbar-inverse.navbar-embossed{
+}.container-sidebar 
+.navbar.navbar-inverse.navbar-embossed{
 	margin-bottom: 0;
 }
 .container-sidebar .navbar-header {

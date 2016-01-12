@@ -19,21 +19,15 @@
 	<!-- Sidebar -->
 	<div id="sidebar-wrapper" >
 	<!-- nav-top-logo -->
-	<nav class="navbar navbar-default logo">
+	<!--<nav class="navbar navbar-default logo">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">
 					<img alt="Ponto de Acesso" src="img/logos/logo-ponto-de-acesso.png">
 				</a>
 			</div>
-			
-			<div class="collapse navbar-collapse" id="menu">
-      			<ul class="nav navbar-nav">
-        			<li><a href="cadastro.html">Cadastrar Locais</a></li>
-        		</ul>
-        	</div>
 		</div>
-	</nav>
+	</nav>-->
 	<!-- sidebar -->
 	<div class="container-fluid">
 		<div class="row">
@@ -41,7 +35,14 @@
 				<!-- navbar -->
 				<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
 					<div class="navbar-header">
-					<h2>Vizualizar no mapa:</h2>
+					<a class="navbar-brand" href="#">
+						<img alt="Ponto de Acesso" src="img/logos/logo-ponto-de-acesso.png">
+					</a>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
 						<button type="button" class="btn btn-default navbar-toggle" data-toggle="collapse"
 							data-target="#navbar-collapse-01">
 							<span class="sr-only">Toggle navigation</span> <i
@@ -49,52 +50,17 @@
 						</button>
 					</div>
 					<div class="navbar-collapse collapse" id="navbar-collapse-01">
+					<label>Encontre Pontos de Acessibilidade em qualquer ponto da cidade!</label>
 						<div class="nav navbar-nav navbar-left sidebar-nav">
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxR.value" ng-change="filterMarkers(checkboxR.value, 1);"> <label
-									for="checkbox4"> Restaurantes </label>
+							<div class="checkbox-info">
+								<label> Sobre Nós </label>
 							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxH.value" ng-change="filterMarkers(checkboxH.value, 2);"> <label
-									for="checkbox4"> Hospitais </label>
+							<div class="checkbox-info">
+								<label> Contato</label>
 							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxE.value" ng-change="filterMarkers(checkboxE.value, 3);"> <label>
-									Estacionamentos </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxC.value" ng-change="filterMarkers(checkboxC.value, 4);"> <label>
-									Calçadas com rampa </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxCo.value" ng-change="filterMarkers(checkboxCo.value, 5);"> <label>
-									Comércios </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxT.value" ng-change="filterMarkers(checkboxT.value, 6);"> <label>
-									Estação Tubo </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxO.value" ng-change="filterMarkers(checkboxO.value, 7);"> <label>
-									Ônibus com elevadores </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxHo.value" ng-change="filterMarkers(checkboxHo.value, 8);"> <label>
-									Hor. de turismo adaptados </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxCa.value" ng-change="filterMarkers(checkboxCa.value, 9);"> <label>
-									Carros adaptados </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxVe.value" ng-change="filterMarkers(checkboxVe.value, 10);"> <label>
-									Vagas de emprego </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox" ng-model="checkboxLo.value" ng-change="filterMarkers(checkboxLo.value, 11);"> <label>
-									Locais perigosos </label>
-							</div>
-<!-- 							<button type="button" class="btn btn-success right" title="Adicionar Marcador" ng-click="openModalAddMarker();"><span>Adicionar Marcador</span><i class="fa fa-tags"></i></button>-->						
+							<div class="checkbox-info">
+								<label> Como Posso Ajudar ?</label>
+							</div>						
 						</div>
 					</div>
 				</nav>
@@ -135,8 +101,9 @@
 
 	<!-- /#sidebar-wrapper -->
 	<div id="page-content-wrapper">
-		<div class="container-mapa col-xs-12 col-sm-8">
-			<div class="ng-view-mapa" id="map"></div>
+		<div>
+			<!--<div class="ng-view-mapa" id="map"></div>-->
+			<iframe src="https://www.google.com/maps/d/embed?mid=zM9JqNC_VxAc.kwIsxxe-xbjs" class="container-mapa col-xs-12 col-sm-8" ></iframe>
 		</div>
 	</div>
 	</div>
