@@ -1,13 +1,20 @@
 package demo.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "pontos")
@@ -29,13 +36,17 @@ public class Pontos {
 
 	@Column(name = "longitude")
 	protected Double longitude;
-	
+
 	@Column(name = "foto")
 	protected String foto;
 
 	@OneToOne
 	@JoinColumn(name = "id_categoria")
 	protected Categoria categoria;
+	
+	@OneToMany(mappedBy = "ponto", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JsonManagedReference
+	private List<PontoCaracteristica> caracteristicas;
 
 	public Pontos() {
 	}
@@ -104,5 +115,15 @@ public class Pontos {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
+	public List<PontoCaracteristica> getCaracteristicas() {
+		return caracteristicas;
+	}
+
+	public void setCaracteristicas(List<PontoCaracteristica> caracteristicas) {
+		this.caracteristicas = caracteristicas;
+	}
+	
+	
 
 }

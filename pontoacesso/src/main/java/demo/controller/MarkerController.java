@@ -83,22 +83,23 @@ public class MarkerController {
 		}
 		return new ResponseEntity<List<Pontos>>(lista, HttpStatus.OK);
 	}
-	
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ResponseEntity<?> adicionar(@RequestBody CadastroView cadastroView){
+	public ResponseEntity<?> adicionar(@RequestBody CadastroView cadastroView) {
 		Pontos p = new Pontos();
-		p.setCategoria(categoriaService.findById(Long.valueOf(cadastroView.getTipo())));
+		p.setCategoria(categoriaService.findById(Long.valueOf(cadastroView
+				.getTipo())));
 		p.setNome(cadastroView.getNome());
 		p.setLatitude(cadastroView.getLatitude());
 		p.setLongitude(cadastroView.getLongitude());
 		p.setFoto(cadastroView.getFoto());
 		repository.save(p);
 		for (Integer c : cadastroView.getCaracteristicas()) {
-			Caracteristica caracteristica = caracteristicaService.findById(c.longValue());
+			Caracteristica caracteristica = caracteristicaService.findById(c
+					.longValue());
 			PontoCaracteristica pc = new PontoCaracteristica(p, caracteristica);
 			pontoCaracteristicaService.salvar(pc);
-			
+
 		}
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}

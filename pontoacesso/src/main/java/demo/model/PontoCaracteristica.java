@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "ponto_caracteristicas")
 public class PontoCaracteristica implements Serializable {
@@ -36,6 +39,8 @@ public class PontoCaracteristica implements Serializable {
 
 	@OneToOne
 	@JoinColumn(name = "id_ponto")
+	@JsonManagedReference
+	@JsonIgnore
 	private Pontos ponto;
 
 	@OneToOne
